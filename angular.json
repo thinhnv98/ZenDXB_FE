@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/zen-dxb-fe",
+            "outputPath": "../zen-dxb/app/web/views/admincp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -113,7 +113,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "zen-dxb-fe:serve"
+            "devServerTaroptioget": "zen-dxb-fe:serve"
           },
           "configurations": {
             "production": {
