@@ -4,9 +4,9 @@ import {Observable} from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'user',
+  selector: 'user-login-service',
   templateUrl: './user.service.html',
-  styleUrls: ['../app.component.css'],
+  styleUrls: ['../../../app.component.css'],
 })
 @Injectable()
 export class UserServiceComponent implements OnInit{

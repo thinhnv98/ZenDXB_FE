@@ -1,33 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import {AccountModule} from './modules/account/account.module';
+import {CommonModule} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
-import { UserServiceComponent } from './services/user.service';
+import { AccountComponent } from './modules/account/account.component';
+
+
 
 const routes: Routes = [
   {
-    path: 'user/login',
-    component: UserComponent,
+    path: 'account/login',
+    component: AccountComponent,
   },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    UserServiceComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AccountModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    CommonModule,
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

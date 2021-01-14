@@ -2,10 +2,10 @@ import {Component, ViewChild} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'user-component',
-  templateUrl: './user.component.html',
+  selector: 'user-login',
+  templateUrl: '../pages/user-login.component.html',
 })
-export class UserComponent{
+export class UserLoginComponent {
   public isSuccess = true;
   public err = '';
 
