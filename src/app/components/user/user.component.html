@@ -1,6 +1,2 @@
 <user (onLogin)="parentLogin($event)" (onLoginErr)="parentLoginErr($event)"></user>
-<div [hidden]="!isSuccess">
-  Token receive:
-  <p  class="text-success"> {{tokenLoggedIn}}</p>
-</div>
 <p [hidden]="isSuccess" class="text-danger">{{err}}</p>

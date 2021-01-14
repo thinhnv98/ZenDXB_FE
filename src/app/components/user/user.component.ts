@@ -6,14 +6,12 @@ import {Component, ViewChild} from '@angular/core';
   templateUrl: './user.component.html',
 })
 export class UserComponent{
-  public tokenLoggedIn = '';
   public isSuccess = true;
   public err = '';
 
   // tslint:disable-next-line:typedef
   parentLogin(token: any){
     this.isSuccess = true;
-    this.tokenLoggedIn = token;
   }
 
   // tslint:disable-next-line:typedef
