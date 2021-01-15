@@ -10,15 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './modules/account/account.component';
 
-
-
-const routes: Routes = [
-  {
-    path: 'account/login',
-    component: AccountComponent,
-  },
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +22,6 @@ const routes: Routes = [
     AccountModule,
     HttpClientModule,
     CommonModule,
-    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

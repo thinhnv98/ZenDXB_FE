@@ -1,49 +1,37 @@
-import {Component, OnInit, EventEmitter, Output, Injectable} from '@angular/core';
+import {Injectable, InjectionToken} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {UserLogin} from '../../../models/models';
 
-@Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'user-login-service',
-  templateUrl: './user.service.html',
-  styleUrls: ['../../../app.component.css'],
-})
+export const IUserServiceToken = new InjectionToken('IUserService');
+
+export interface IUserService {
+  Login(userLogin: UserLogin): Observable<any>;
+  ForgotPassword(email: string): Observable<any>;
+}
+
 @Injectable()
-export class UserServiceComponent implements OnInit{
+export class UserService implements IUserService{
   constructor(private http: HttpClient) {
   }
 
-  private apiUrl = 'http://localhost:8080/user/login-api';
-
-  public loginBody = {username: '', password: ''};
-
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onLogin = new EventEmitter<string>();
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onLoginErr = new EventEmitter<any>();
-
   // tslint:disable-next-line:typedef
-  ngOnInit(){}
+  public Login(userLogin: UserLogin): Observable<any>{
+    const reqBody = {username: '', password: ''};
+    const header = {'Access-Control-Allow-Origin': '*'};
+    reqBody.username = userLogin.username;
+    reqBody.password = userLogin.password;
 
-  // tslint:disable-next-line:typedef
-  Login(value: any){
-    this.loginBody.username = value.username as string;
-    this.loginBody.password = value.password as string;
-
-    const headers = {'Access-Control-Allow-Origin': '*'};
-
-    this.callAPI(this.apiUrl, this.loginBody, headers).subscribe((response: any) => {
-      console.log(response);
-      console.log(response.Token);
-      this.onLogin.emit(response.Token);
-    }, error => {
-      this.onLoginErr.emit(error);
-    });
+    // @ts-ignore
+    return this.http.post('http://localhost:8080/user/login-api', reqBody, header);
   }
 
   // tslint:disable-next-line:typedef
-  callAPI(url: string, body: any, header: any): Observable<Observable<any>> {
+  public ForgotPassword(email: string): Observable<any>{
+    const reqBody = {email: ''};
+    const header = {'Access-Control-Allow-Origin': '*'};
+    reqBody.email = email;
     // @ts-ignore
-    return this.http.post(url, body, header);
+    return this.http.post('http://localhost:8080/user/reset-password-by-email', reqBody, header);
   }
 }
