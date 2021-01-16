@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "zen-dxb-fe"
+  "defaultProject": "zen-dxb-fe",
+  "cli": {
+    "analytics": "de0eb183-8337-40cf-b324-f55dd64c1850"
+  }
 }

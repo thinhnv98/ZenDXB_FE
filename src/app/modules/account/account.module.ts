@@ -7,6 +7,7 @@ import {CommonModule} from '@angular/common';
 import {UserLoginComponent} from './components/user-login.component';
 import {AccountComponent} from './account.component';
 import {UserForgotPasswordComponent} from './components/user-forgot-password.component';
+import {UserNewPasswordComponent} from './components/user-new-password.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'user/forgot-password',
     component: UserForgotPasswordComponent
+  },
+  {
+    path: 'user/reset-password',
+    component: UserNewPasswordComponent
   }
 ];
 
@@ -23,8 +28,9 @@ const routes: Routes = [
   declarations: [
     UserLoginComponent,
     UserForgotPasswordComponent,
+    UserNewPasswordComponent,
   ],
-  exports: [UserLoginComponent, UserForgotPasswordComponent],
+  exports: [UserLoginComponent, UserForgotPasswordComponent, UserNewPasswordComponent],
   imports: [
     CommonModule,
     FormsModule,
